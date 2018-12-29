@@ -7,6 +7,7 @@ const PostList = ({ posts }) => {
       <thead>
         <tr>
           <th>Title</th>
+          <th>Content</th>
           <th>Author</th>
           <th>Category</th>
         </tr>

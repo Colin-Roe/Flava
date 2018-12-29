@@ -7,30 +7,35 @@ const posts = [
   {
     id: "react-flux-building-applications",
     title: "Building Applications in React and Flux",
+    content: "I built an app using React and Flux",
     authorId: "cory-house",
     category: "JavaScript"
   },
   {
     id: "clean-code",
     title: "Clean Code: Writing Code for Humans",
+    content: "Writing clean code is hard",
     authorId: "cory-house",
     category: "Software Practices"
   },
   {
     id: "architecture",
     title: "Architecting Applications for the Real World",
+    content: "I prefer the virtual world",
     authorId: "cory-house",
     category: "Software Architecture"
   },
   {
     id: "career-reboot-for-developer-mind",
     title: "Becoming an Outlier: Reprogramming the Developer Mind",
+    content: "The developer mind is not an outlier",
     authorId: "cory-house",
     category: "Career"
   },
   {
     id: "web-components-shadow-dom",
     title: "Web Component Fundamentals",
+    content: "It is fundamental to know the web",
     authorId: "cory-house",
     category: "HTML5"
   }
@@ -72,7 +77,7 @@ class PostApi {
           //The server would generate ids and watchHref's for new courses in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
           post.id = generateId(post);
-          post.push(post);
+          posts.push(post);
         }
 
         resolve(post);

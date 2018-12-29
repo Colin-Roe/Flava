@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import TextInput from "../commonTextInput";
+import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
+import TextAreaInput from "../common/TextAreaInput";
 
 const PostForm = ({ post, allAuthors, onSave, onChange, loading, errors }) => {
   return (
@@ -22,9 +23,18 @@ const PostForm = ({ post, allAuthors, onSave, onChange, loading, errors }) => {
         onChange={onChange}
         error={errors.authorId}
       />
+      <TextAreaInput
+        name="content"
+        label="Content"
+        cols="4"
+        rows="4"
+        value={post.content}
+        onChange={onChange}
+        error={errors.content}
+      />
       <TextInput
         name="category"
-        label="category"
+        label="Category"
         value={post.category}
         onChange={onChange}
         error={errors.category}

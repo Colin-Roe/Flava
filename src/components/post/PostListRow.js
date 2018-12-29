@@ -7,6 +7,7 @@ const PostListRow = ({ post }) => {
       <td>
         <Link to={"/post/" + post.id}>{post.title}</Link>
       </td>
+      <td>{post.content}</td>
       <td>{post.authorId}</td>
       <td>{post.category}</td>
     </tr>
