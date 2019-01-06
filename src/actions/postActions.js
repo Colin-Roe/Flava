@@ -1,5 +1,6 @@
 import * as types from "./actionTypes";
 import postApi from "../api/mockPostApi";
+import { beginAjaxCall, ajaxCallError } from "./ajaxStatusAction";
 
 export function loadPostsSuccess(posts) {
   return { type: types.LOAD_POSTS_SUCCESS, posts };
@@ -15,6 +16,7 @@ export function updatePostSuccess(post) {
 
 export function loadPosts() {
   return function(dispatch) {
+    dispatch(beginAjaxCall());
     return postApi
       .getAllPosts()
       .then(posts => {
@@ -28,6 +30,7 @@ export function loadPosts() {
 
 export function savePost(post) {
   return function(dispatch, getState) {
+    dispatch(beginAjaxCall());
     return postApi
       .savePost(post)
       .then(savedPost => {
@@ -36,6 +39,7 @@ export function savePost(post) {
           : dispatch(createPostSuccess(savedPost));
       })
       .catch(error => {
+        dispatch(ajaxCallError(error));
         throw error;
       });
   };

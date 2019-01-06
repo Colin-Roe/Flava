@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as postActions from "../../actions/postActions";
 import PostForm from "./PostForm";
+import toastr from "toastr";
 
 class ManagePostPage extends Component {
   constructor(props, context) {
@@ -33,7 +34,19 @@ class ManagePostPage extends Component {
 
   savePost(event) {
     event.preventDefault();
-    this.props.actions.savePost(this.state.post);
+    this.setState({ saving: true });
+    this.props.actions
+      .savePost(this.state.post)
+      .then(() => this.redirect())
+      .catch(error => {
+        toastr.error(error);
+        this.setState({ saving: false });
+      });
+  }
+
+  redirect() {
+    this.setState({ saving: false });
+    toastr.success("Post saved");
     this.context.router.push("/posts");
   }
 
@@ -44,6 +57,7 @@ class ManagePostPage extends Component {
         onChange={this.updatePostState}
         onSave={this.savePost}
         post={this.state.post}
+        saving={this.state.saving}
         errors={this.state.errors}
       />
     );

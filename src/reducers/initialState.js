@@ -1,4 +1,5 @@
 export default {
   authors: [],
-  posts: []
+  posts: [],
+  ajaxCallsInProgress: 0
 };
