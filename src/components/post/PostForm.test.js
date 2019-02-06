@@ -25,7 +25,7 @@ function setup(saving) {
 
 describe("PostForm via React Test Utils", () => {
   it("renders form and h1", () => {
-    const { output } = setup();
+    const { output } = setup(false);
     expect(output.type).toBe("form");
     let [h1] = output.props.children;
     expect(h1.type).toBe("h1");
