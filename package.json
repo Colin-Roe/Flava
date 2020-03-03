@@ -16,7 +16,7 @@
   "dependencies": {
     "babel-polyfill": "6.8.0",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.4.0",
     "lodash": "^4.17.15",
     "mixin-deep": "^2.0.1",
     "react": "15.0.2",
